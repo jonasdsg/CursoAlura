@@ -76,6 +76,13 @@ public class Movimentacao {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
+
+	@Override
+	public String toString() {
+		return "Movimentacao [id=" + id + ", valor=" + valor + ", tipoMovimentacao=" + tipoMovimentacao + ", data="
+				+ data + ", descricao=" + descricao + ", conta=" + conta + ", categoria=" + categoria + "]";
+	}
+	
 	
 	
 }

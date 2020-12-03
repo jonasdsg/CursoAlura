@@ -13,6 +13,7 @@ import br.com.alura.modelo.Movimentacao;
 import br.com.alura.modelo.TipoMovimentacao;
 
 public class TestandoRelacionamento {
+	
 	public static void main(String[] args) {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("contas");
 		EntityManager em = emf.createEntityManager();
@@ -62,7 +63,20 @@ public class TestandoRelacionamento {
 			em.persist(movimentacaoNeg);
 		em.getTransaction().commit();
 		em.close();
-		emf.close();
 		
+		EntityManager em2 = emf.createEntityManager();		
+		
+		Cliente cliente2 = new Cliente();
+		cliente2.setNome("Carlos");
+		cliente2.setEndereco("Rua das Marracas,38");
+		cliente2.setProfissao("Tecnico");
+		cliente2.setConta(conta);
+		
+		em2.getTransaction().begin();
+			em2.persist(cliente2);
+		em2.getTransaction().commit();
+		em2.close();
+		
+		System.out.println(cliente2);
 	}
 }
