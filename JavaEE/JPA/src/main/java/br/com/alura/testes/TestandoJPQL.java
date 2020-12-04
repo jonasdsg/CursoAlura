@@ -7,6 +7,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
+import br.com.alura.modelo.Conta;
 import br.com.alura.modelo.Movimentacao;
 
 public class TestandoJPQL {
@@ -20,8 +21,12 @@ public class TestandoJPQL {
 		TypedQuery<Movimentacao> query = em.createQuery(sql,Movimentacao.class);
 		
 		List<Movimentacao> result = query.getResultList();
+		result.forEach(m -> System.out.println(m));
 		
-		System.out.println(result);
+		Conta conta = em.find(Conta.class, 1L);
+		int movimentacoes = conta.getMovimentacoes().size();
+		System.out.println(conta.getTitular());
+		System.out.println(movimentacoes);
 	}
 
 }

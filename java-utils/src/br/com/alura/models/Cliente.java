@@ -1,8 +1,6 @@
 package br.com.alura.models;
 
-import java.util.Comparator;
-
-public class Cliente implements Comparable{
+public class Cliente implements Comparable<Cliente>{
 	
 	private Long id;
 	private String nome;
@@ -28,7 +26,7 @@ public class Cliente implements Comparable{
 	}
 
 	@Override
-	public int compareTo(Object c2) {
+	public int compareTo(Cliente c2) {
 		if(this.getConta().getSaldo()<((Cliente) c2).getConta().getSaldo()) {
 			return -1;
 		}
@@ -37,6 +35,7 @@ public class Cliente implements Comparable{
 		}
 		return 0;
 	}
+	
 	
 	
 }
