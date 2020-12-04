@@ -19,7 +19,7 @@ public class CriandoTabelas {
 		conta.setAgencia(12345);
 		conta.setNumero(6789);
 		conta.setSaldo(5000.0);
-		conta.setTitular("Mario Monteiro");
+		conta.setTitular("Karine");
 		
 		em.getTransaction().begin();
 			em.persist(conta);
@@ -28,18 +28,26 @@ public class CriandoTabelas {
 		em.close();
 		//Transforma uma entidade Detached em Managed
 		EntityManager em2 = emf.createEntityManager();
-		conta.setSaldo(15000.0);
+		conta.setSaldo(1500.0);
 		em2.merge(conta);
 		
 		Movimentacao movimentacao = new Movimentacao();
+		Movimentacao m2 = new Movimentacao();
 		movimentacao.setData(LocalDateTime.now());
-		movimentacao.setDescricao("Churras");
-		movimentacao.setTipoMovimentacao(TipoMovimentacao.SAIDA);
-		movimentacao.setValor(600.0);
+		movimentacao.setDescricao("comissão");
+		movimentacao.setTipoMovimentacao(TipoMovimentacao.ENTRADA);
+		movimentacao.setValor(80.0);
 		movimentacao.setConta(conta);
+		
+		m2.setDescricao("Presente");
+		m2.setData(LocalDateTime.now().plusDays(1));
+		m2.setTipoMovimentacao(TipoMovimentacao.SAIDA);
+		m2.setValor(860.0);
+		m2.setConta(conta);
 		
 		em2.getTransaction().begin();
 		em2.persist(movimentacao);
+		em2.persist(m2);
 		em2.getTransaction().commit();
 	}
 
