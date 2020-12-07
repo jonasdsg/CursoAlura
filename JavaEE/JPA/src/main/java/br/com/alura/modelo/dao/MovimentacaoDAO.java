@@ -25,8 +25,7 @@ public class MovimentacaoDAO {
 	}
 
 	public Double getMediaMovimentacoes() {
-		jpql = "select sum(m.valor) from Movimentacao m";
-		TypedQuery<Double> avg = em.createQuery(jpql, Double.class);
+		TypedQuery<Double> avg = em.createNamedQuery("retornaMediaMovimentacoes", Double.class);
 		return avg.getSingleResult();
 	}
 
