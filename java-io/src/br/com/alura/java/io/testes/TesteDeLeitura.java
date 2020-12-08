@@ -9,7 +9,7 @@ public class TesteDeLeitura {
 	public static void main(String[] args) {
 		try 
 		{
-			FileInputStream fis = new FileInputStream("lorem.txt");
+			FileInputStream fis = new FileInputStream("lorem_read.txt");
 			InputStreamReader isr = new InputStreamReader(fis);
 			BufferedReader buffer = new BufferedReader(isr);
 			String linha;
