@@ -8,10 +8,10 @@ public class LeituraDeArquivoComScanner {
 	public static void main(String[] args) throws Exception {
 		Scanner scanner = new Scanner(new File("lorem_read.txt"));
 		String linha = "";
-		do {
-			linha = scanner.nextLine();
+		while(linha!=null) {
 			System.out.println(linha);
-		}while(scanner.hasNextLine());
+			linha = scanner.nextLine();
+		}
 	}
 
 }

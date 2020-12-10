@@ -1,2 +1,0 @@
-Escrita com PrintStream
-fim
