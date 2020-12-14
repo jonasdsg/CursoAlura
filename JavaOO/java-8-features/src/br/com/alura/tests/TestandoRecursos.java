@@ -9,13 +9,7 @@ public class TestandoRecursos {
 	public static void main(String[] args) {
 		List<String> array = Arrays.asList("Jonas","Carlos","Amanda","Roberta","Bruna");
 		
-		array.forEach(new Consumer<String>(){
-			@Override
-			public void accept(String nome) {
-				System.out.println(nome);
-			}
-		});
-		
-	}
+		array.forEach(nome -> System.out.println(nome));
 
+	}
 }
