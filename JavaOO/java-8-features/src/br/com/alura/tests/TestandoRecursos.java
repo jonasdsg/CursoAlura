@@ -8,18 +8,14 @@ public class TestandoRecursos {
 
 	public static void main(String[] args) {
 		List<String> array = Arrays.asList("Jonas","Carlos","Amanda","Roberta","Bruna");
-		Consumer<String> iterador = new Iterador();
-		array.forEach(iterador);
+		
+		array.forEach(new Consumer<String>(){
+			@Override
+			public void accept(String nome) {
+				System.out.println(nome);
+			}
+		});
 		
 	}
 
-}
-
-class Iterador implements Consumer<String>{
-
-	@Override
-	public void accept(String nome) {
-		System.out.println(nome);
-	}
-	
 }
