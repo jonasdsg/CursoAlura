@@ -36,4 +36,10 @@ public class Aluno implements Comparable<Aluno>{
 	public Integer getKey() {
 		return this.hashCode();
 	}
+
+	@Override
+	public String toString() {
+		return "Aluno [nome=" + nome + ", matricula=" + matricula + "]";
+	}
+	
 }

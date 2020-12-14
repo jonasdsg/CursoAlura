@@ -9,10 +9,21 @@ import java.util.Map;
 public class Curso {
 	private String instrutor;
 	private String nome;
+	private Long turma;
 
 	private List<Aula> aulas = new ArrayList<Aula>();
 	private Map<Integer,Aluno> alunos = new HashMap<Integer, Aluno>();
 	
+	public Curso() {}
+	
+	public Curso(String nome, Long turma) {
+		this.turma = turma;
+		this.nome = nome;
+	}
+	
+	public Long getTurma() {
+		return this.turma;
+	}
 	public String getNome() {
 		return nome;
 	}
@@ -40,5 +51,15 @@ public class Curso {
 			total += aula.getDuracao();
 
 		return total;
+	}
+
+	public void setInstrutor(String instrutor) {
+		if(instrutor.length()<=0) 
+				throw new RuntimeException("O nome não pode estar vazio!");		
+		this.instrutor = instrutor;  
+	}
+
+	public List<Aluno> getAlunos() {
+		return Collections.unmodifiableList(new ArrayList<Aluno>(alunos.values()));
 	}
 }
