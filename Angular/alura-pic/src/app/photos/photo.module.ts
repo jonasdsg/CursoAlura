@@ -12,7 +12,7 @@ import { PhotoListComponent } from './photo-list/photo-list.component';
     ],
 
     exports: [
-        PhotoComponent
+        PhotoListComponent
     ],
     
     imports:[
