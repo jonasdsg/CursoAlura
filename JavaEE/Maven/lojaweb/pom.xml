@@ -9,6 +9,14 @@
 	<name>lojaweb Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 	<dependencies>
+	
+		<dependency>
+			<groupId>br.com.alura.maven</groupId>
+			<artifactId>produtos</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>
+		
+		
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
