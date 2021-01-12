@@ -14,7 +14,9 @@ public class UsuarioDao {
 	//private Banco banco = new Banco();
 
 	public Usuario buscaPeloLogin(String login) {
-		return em.find(Usuario.class,login);
+		return em.createQuery("SELECT usuario FROM Usuario usuario WHERE usuario.login = :pLogin",Usuario.class)
+				.setParameter("pLogin",login)
+				.getSingleResult();
 	}
 	
 }
