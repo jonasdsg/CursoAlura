@@ -1,7 +1,7 @@
 <div class="text-center mt-3 mb-3">
     <form>
         <input #filter
-            (keyup)="0"
+            (keyup)="debounce.next(filter.value)"
             class="rounded"
             type="search"
             placeholder="search..."
@@ -9,4 +9,4 @@
     </form>
 </div>
 
-<ap-photos [photos]="photos | filterByDescription: filter.value"></ap-photos>
+<ap-photos [photos]="photos | filterByDescription: filtro"></ap-photos>
