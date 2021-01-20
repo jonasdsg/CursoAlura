@@ -1,3 +1,4 @@
+import { PhotoListModule } from './photo-list/photo-list.module';
 import { FilterByDescription } from './photo-list/filter-by-description.pipe';
 import { HttpClientModule } from '@angular/common/http';
 import { PhotoComponent } from './photo/photo.component';
@@ -12,22 +13,14 @@ import { LoadButtonComponent } from './photo-list/load-button/load-button.compon
 @NgModule({
     declarations: [
         PhotoComponent,
-        PhotoListComponent,
-        PhotoFormComponent,
-        PhotosComponent,
-        FilterByDescription,
-        LoadButtonComponent
-    ],
-
-    exports: [
-        PhotoListComponent,
-        FilterByDescription
+        PhotoFormComponent,      
     ],
     
     imports:[
         CommonModule,
         FormsModule,
         HttpClientModule,
+        PhotoListModule
 
     ]
 })
