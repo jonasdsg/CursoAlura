@@ -12,12 +12,16 @@ import { debounceTime } from 'rxjs/operators';
 })
 export class PhotoListComponent implements OnInit, OnDestroy {
 
+  public hasMore:boolean = true;
   public photos:Photo[] = [];
   public debounce:Subject<string> = new Subject<string>();
   public filtro:string = '';
+  public currentPage:number = 1;
+  public userName:string = '';
 
   constructor(
-    private activatedRoute:ActivatedRoute
+    private activatedRoute:ActivatedRoute,
+    private photoService:PhotoService
     ){}
 
   ngOnDestroy(): void {
@@ -25,11 +29,23 @@ export class PhotoListComponent implements OnInit, OnDestroy {
   }
   
   ngOnInit(): void {
+   this.userName = this.activatedRoute.snapshot.params['userName'];
    this.photos = this.activatedRoute.snapshot.data['photos'];
    this.debounce
    .pipe(debounceTime(300))
    .subscribe(filtro => this.filtro = filtro)
    ;
+  }
+
+  load(){
+    this.currentPage++;
+    this.photoService
+      .listFromUserPaginated(this.userName,this.currentPage)
+      .subscribe(photos => {
+        this.photos = this.photos.concat(...photos);
+        this.hasMore = !!photos.length;
+      });
+
   }
 
 }
