@@ -17,6 +17,7 @@
     "babili-webpack-plugin": "^0.1.1",
     "bootstrap": "^3.3.7",
     "css-loader": "^0.28.4",
+    "jquery": "^3.2.1",
     "reflect-metadata": "^0.1.10",
     "style-loader": "^0.18.2",
     "webpack": "^3.1.0"
