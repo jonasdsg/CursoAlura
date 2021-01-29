@@ -1,0 +1,16 @@
+127.0.0.1 - - [28/Jan/2021:08:22:48 -0300] "GET / HTTP/1.1" 404 751
+127.0.0.1 - - [28/Jan/2021:08:23:15 -0300] "-" 400 2199
+127.0.0.1 - - [28/Jan/2021:08:23:38 -0300] "GET /gerenciador/ola HTTP/1.1" 200 53
+127.0.0.1 - - [28/Jan/2021:08:23:39 -0300] "GET /favicon.ico HTTP/1.1" 404 762
+127.0.0.1 - - [28/Jan/2021:08:27:34 -0300] "GET / HTTP/1.1" 404 751
+127.0.0.1 - - [28/Jan/2021:18:37:21 -0300] "GET /gerenciador/ola HTTP/1.1" 200 52
+127.0.0.1 - - [28/Jan/2021:18:37:22 -0300] "GET /favicon.ico HTTP/1.1" 404 762
+127.0.0.1 - - [28/Jan/2021:18:37:38 -0300] "GET /gerenciador/ola?nome=%22Jonas%22 HTTP/1.1" 200 55
+127.0.0.1 - - [28/Jan/2021:18:37:54 -0300] "GET /gerenciador/ola?nome=Jonas%20G%C3%B3es HTTP/1.1" 200 59
+127.0.0.1 - - [28/Jan/2021:18:38:01 -0300] "GET /gerenciador/ola?nome=Jonas%20Goes HTTP/1.1" 200 58
+127.0.0.1 - - [28/Jan/2021:21:27:09 -0300] "GET /gerenciador/cadastrar HTTP/1.1" 404 776
+127.0.0.1 - - [28/Jan/2021:21:27:59 -0300] "GET / HTTP/1.1" 404 751
+127.0.0.1 - - [28/Jan/2021:21:28:05 -0300] "GET /gerenciador/cadastrar HTTP/1.1" 200 -
+127.0.0.1 - - [28/Jan/2021:21:28:08 -0300] "GET /gerenciador/cadastrar HTTP/1.1" 200 -
+127.0.0.1 - - [28/Jan/2021:21:28:34 -0300] "GET /gerenciador/cadastrar?nome=Jonas HTTP/1.1" 200 -
+127.0.0.1 - - [28/Jan/2021:21:28:55 -0300] "GET /gerenciador/cadastrar?nome=Maria HTTP/1.1" 200 -
