@@ -25,4 +25,9 @@ public class Empresa {
 	public Long getId() {
 		return this.id;
 	}
+	
+	@Override
+	public String toString() {
+		return this.getNome();
+	}
 }
