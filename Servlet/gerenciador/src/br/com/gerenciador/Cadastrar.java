@@ -18,7 +18,7 @@ public class Cadastrar extends HttpServlet{
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
 		String nomeEmpresa = req.getParameter("nome");
-		RequestDispatcher rd = req.getRequestDispatcher("/listagem.jsp");
+		RequestDispatcher rd = req.getRequestDispatcher("/listar.jsp");
 		
 		if(nomeEmpresa!=null) {
 			Banco.add(nomeEmpresa);
