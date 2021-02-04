@@ -24,7 +24,7 @@ public class Banco {
 		return Collections.unmodifiableList(empresas);
 	}
 	
-	public static void del(String nome) {
-		empresas.removeIf(empresa-> empresa.getNome().equals(nome));
+	public static void del(String id) {
+		empresas.removeIf(empresa-> empresa.getId()==Long.parseLong(id));
 	}
 }

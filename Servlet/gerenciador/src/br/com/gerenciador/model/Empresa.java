@@ -9,17 +9,16 @@ public class Empresa {
 	private Date data;
 	
 	public Empresa() {
-		Empresa.ids++;
-		this.id = Long.valueOf(Empresa.ids);
+		this.updateId();
 	}
 	
 	public Empresa(String nome) {
-		this.id = Long.valueOf(Empresa.ids);
+		this.updateId();
 		this.nome = nome;
 	}
 	
 	public Empresa(String nome,Date data) {
-		this.id = Long.valueOf(Empresa.ids);
+		this.updateId();
 		this.nome = nome;
 		this.data = data;
 	}	
@@ -35,7 +34,16 @@ public class Empresa {
 		return this.id;
 	}
 	
-	
+	private void updateId() {
+		if(Empresa.ids==0) {
+			Empresa.ids++;
+			this.id = 1L;
+		}
+		else {
+			Empresa.ids++;
+			this.id = Long.valueOf(Empresa.ids);
+		}
+	}
 	
 	public Date getData() {
 		return data;
@@ -47,6 +55,8 @@ public class Empresa {
 
 	@Override
 	public String toString() {
-		return this.getNome();
+		return "id: "+this.getId()
+				+", Nome: "+this.getNome()
+				+"\n";
 	}
 }
