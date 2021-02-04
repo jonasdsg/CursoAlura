@@ -23,7 +23,7 @@ public class Cadastrar extends HttpServlet{
 		String nomeEmpresa = req.getParameter("nome");
 		String dataCriacao = req.getParameter("data");
 		
-		RequestDispatcher rd = req.getRequestDispatcher("/listar.jsp");
+		//RequestDispatcher rd = req.getRequestDispatcher("/listar.jsp");
 		
 		if(nomeEmpresa!=null) {
 			try {
@@ -34,7 +34,8 @@ public class Cadastrar extends HttpServlet{
 			} catch (ParseException e) {
 				throw new ServletException(e);
 			}
-			rd.forward(req, res);
+			//rd.forward(req, res);
+			res.sendRedirect("listar.jsp");
 		}
 		
 	}
