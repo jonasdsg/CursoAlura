@@ -1,6 +1,9 @@
 package br.com.gerenciador;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -18,10 +21,19 @@ public class Cadastrar extends HttpServlet{
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
 		String nomeEmpresa = req.getParameter("nome");
+		String dataCriacao = req.getParameter("data");
+		
 		RequestDispatcher rd = req.getRequestDispatcher("/listar.jsp");
 		
 		if(nomeEmpresa!=null) {
-			Banco.add(nomeEmpresa);
+			try {
+				SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+				Date data = sdf.parse(dataCriacao);
+				Banco.add(nomeEmpresa,data);
+				
+			} catch (ParseException e) {
+				throw new ServletException(e);
+			}
 			rd.forward(req, res);
 		}
 		
