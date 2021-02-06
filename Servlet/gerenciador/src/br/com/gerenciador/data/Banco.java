@@ -27,4 +27,13 @@ public class Banco {
 	public static void del(String id) {
 		empresas.removeIf(empresa-> empresa.getId()==Long.parseLong(id));
 	}
+	
+	public static void edit(Empresa empresa) {
+		for(Empresa e: empresas) {
+			if(e.getId()==empresa.getId()) {
+				e.setData(empresa.getData());
+				e.setNome(e.getNome());
+			}
+		}
+	}
 }

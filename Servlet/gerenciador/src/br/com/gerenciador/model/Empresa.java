@@ -23,6 +23,12 @@ public class Empresa {
 		this.data = data;
 	}	
 	
+	public Empresa(Long id, String nome, Date data) {
+		this.id = id;
+		this.nome = nome;
+		this.data = data;
+	}
+
 	public String getNome() {
 		return nome;
 	}
