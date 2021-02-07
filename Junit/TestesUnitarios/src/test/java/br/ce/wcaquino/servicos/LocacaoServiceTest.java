@@ -5,13 +5,15 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.Date;
 
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 import br.ce.wcaquino.entidades.Filme;
 import br.ce.wcaquino.entidades.Locacao;
 import br.ce.wcaquino.entidades.Usuario;
+import br.ce.wcaquino.exceptions.FilmeSemEstoqueException;
+import br.ce.wcaquino.exceptions.FilmeVazioException;
+import br.ce.wcaquino.exceptions.UsuarioVazioException;
 import br.ce.wcaquino.utils.DataUtils;
 
 public class LocacaoServiceTest {
@@ -28,7 +30,7 @@ public class LocacaoServiceTest {
 		this.service = new LocacaoService();
 	}
 	
-	@Test(expected = Exception.class)
+	@Test(expected = FilmeSemEstoqueException.class)
 	public void locacaoNaoPodeTerEstoqueVazio() throws Exception {
 		//cenário
 		this.filme.setEstoque(null);
@@ -51,6 +53,17 @@ public class LocacaoServiceTest {
 	public void testePrecoLocacao() {
 		this.filme.setPrecoLocacao(10.0);
 		assertEquals(VALOR_LOCACAO,this.filme.getPrecoLocacao(),0.01);
+	}
+	
+	@Test(expected = FilmeVazioException.class)
+	public void testaLocacaoParaFilmeNulo() throws Exception {
+		this.service.alugarFilme(usuario, null);
+	}
+	
+	@Test(expected = UsuarioVazioException.class)
+	public void testaLocacaoParaUsuarioNulo() throws Exception {
+		this.filme.setEstoque(5);
+		this.service.alugarFilme(null,filme);
 	}
 
 }
