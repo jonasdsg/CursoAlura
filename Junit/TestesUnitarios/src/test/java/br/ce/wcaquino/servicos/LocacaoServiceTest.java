@@ -3,7 +3,9 @@ package br.ce.wcaquino.servicos;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -19,31 +21,34 @@ import br.ce.wcaquino.utils.DataUtils;
 public class LocacaoServiceTest {
 	private final double VALOR_LOCACAO = 10.0;
 	private Usuario usuario;
-	private Filme filme;
+	private List<Filme> filmes;
 	private LocacaoService service;
 	
 	@Before
 	public void iniciarObjetos() {
+		this.filmes = new ArrayList<Filme>();
 		this.usuario = new Usuario("Usuario 1");
-		this.filme = new Filme();
-		this.filme.setNome("Filme 1");
 		this.service = new LocacaoService();
 	}
 	
 	@Test(expected = FilmeSemEstoqueException.class)
 	public void locacaoNaoPodeTerEstoqueVazio() throws Exception {
+		Filme filme = new Filme();
 		//cenário
-		this.filme.setEstoque(null);
+		filme.setEstoque(null);
+		filmes.add(filme);
 		//ação
-		this.service.alugarFilme(usuario, filme);
+		this.service.alugarFilme(usuario, filmes);
 	}
 	
 	@Test
 	public void testeDataLocacao() throws Exception {
+		Filme filme = new Filme();
 		//Cenário
-		this.filme.setEstoque(5);
+		filme.setEstoque(5);
+		filmes.add(filme);
 		//ação
-		Locacao locacao = service.alugarFilme(usuario, filme);
+		Locacao locacao = service.alugarFilme(usuario, filmes);
 		//verificação
 		assertTrue(DataUtils.isMesmaData(locacao.getDataLocacao(),new Date()));
 		assertTrue(DataUtils.isMesmaData(locacao.getDataRetorno(),DataUtils.adicionarDias(new Date(), 1)));
@@ -51,8 +56,9 @@ public class LocacaoServiceTest {
 	
 	@Test
 	public void testePrecoLocacao() {
-		this.filme.setPrecoLocacao(10.0);
-		assertEquals(VALOR_LOCACAO,this.filme.getPrecoLocacao(),0.01);
+		Filme filme = new Filme();
+		filme.setPrecoLocacao(10.0);
+		assertEquals(VALOR_LOCACAO,filme.getPrecoLocacao(),0.01);
 	}
 	
 	@Test(expected = FilmeVazioException.class)
@@ -62,8 +68,10 @@ public class LocacaoServiceTest {
 	
 	@Test(expected = UsuarioVazioException.class)
 	public void testaLocacaoParaUsuarioNulo() throws Exception {
-		this.filme.setEstoque(5);
-		this.service.alugarFilme(null,filme);
+		Filme filme = new Filme();
+		filme.setEstoque(5);
+		filmes.add(filme);
+		this.service.alugarFilme(null,filmes);
 	}
 
 }

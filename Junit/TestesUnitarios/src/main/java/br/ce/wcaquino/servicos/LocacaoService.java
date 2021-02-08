@@ -4,6 +4,7 @@ import static br.ce.wcaquino.utils.DataUtils.adicionarDias;
 
 import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
 import br.ce.wcaquino.entidades.Filme;
 import br.ce.wcaquino.entidades.Locacao;
@@ -14,14 +15,20 @@ import br.ce.wcaquino.exceptions.UsuarioVazioException;
 
 public class LocacaoService {
 	
-	public Locacao alugarFilme(Usuario usuario, Filme filme) throws Exception {
+	public Locacao alugarFilme(Usuario usuario, List<Filme> filme) throws Exception {
 		Locacao locacao = new Locacao();
 		
 		if(filme == null) {
 			throw new FilmeVazioException("Não há uma instancia de filme");
 		}
+				
+		boolean temEstoque = false;
 		
-		if(Arrays.asList(0,null).contains(filme.getEstoque())) {			
+		for(Filme f:filme){
+			temEstoque = Arrays.asList(0,null).contains(f.getEstoque());
+		}			
+		
+		if(temEstoque) {
 			throw new FilmeSemEstoqueException("Filme não possui estoque");
 		}
 		
@@ -29,10 +36,11 @@ public class LocacaoService {
 			throw new UsuarioVazioException("O usuário está nulo");
 		}
 		
-		locacao.setFilme(filme);
+		filme.stream().forEach(f -> locacao.setFilme(f));
+		
 		locacao.setUsuario(usuario);
 		locacao.setDataLocacao(new Date());
-		locacao.setValor(filme.getPrecoLocacao());
+		filme.stream().forEach(f-> locacao.setValor(f.getPrecoLocacao()));
 
 		//Entrega no dia seguinte
 		Date dataEntrega = new Date();
