@@ -1,11 +1,12 @@
 package escola;
 import static java.util.Objects.isNull;
+import static java.util.regex.Pattern.matches;
 
 public class Email {
 	private String email;
 	Email(String email){
 		
-		if(isNull(email) || !email.matches("(\\w|_)+@(\\w|\\.)+")) {
+		if(isNull(email) || !matches("(\\w|_)+@(\\w|\\.)+",email)) {
 			throw new IllegalArgumentException("Email inválido!");
 		}
 

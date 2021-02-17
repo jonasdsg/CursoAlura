@@ -19,4 +19,17 @@ public class Testes {
 			new Email("teste-11_@test.co");
 		});
 	}
+	
+	@Test
+	public void testeCPFValido() {
+		CPF cpf = new CPF("111.222.333-44");
+		assertEquals("111.222.333-44",cpf.getCpf());
+	}
+	
+	@Test
+	public void testeCPFInvalido() {
+		assertThrows(IllegalArgumentException.class,()->{
+			new CPF("11.44");	
+		});
+	}
 }
