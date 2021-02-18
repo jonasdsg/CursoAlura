@@ -1,7 +1,7 @@
-package br.com.alura.escola.indicacao;
+package br.com.alura.escola.dominio.indicacao;
 import static java.util.Objects.isNull;
 
-import br.com.alura.escola.aluno.Aluno;
+import br.com.alura.escola.dominio.aluno.Aluno;
 public class Indicacao {
 	private Aluno indicacao;
 	private Aluno indicante;

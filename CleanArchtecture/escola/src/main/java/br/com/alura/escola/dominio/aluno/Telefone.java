@@ -1,4 +1,4 @@
-package br.com.alura.escola.aluno;
+package br.com.alura.escola.dominio.aluno;
 import static java.util.regex.Pattern.matches;
 import static java.util.Objects.isNull;
 

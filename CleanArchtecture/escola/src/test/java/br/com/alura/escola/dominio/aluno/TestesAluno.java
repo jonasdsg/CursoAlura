@@ -1,15 +1,15 @@
-package br.com.alura.escola.aluno;
+package br.com.alura.escola.dominio.aluno;
 
-import static br.com.alura.escola.aluno.FabricaDeAluno.novoAluno;
+import static br.com.alura.escola.dominio.aluno.FabricaDeAluno.novoAluno;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
 
-import br.com.alura.escola.aluno.Aluno;
-import br.com.alura.escola.aluno.CPF;
-import br.com.alura.escola.aluno.Email;
+import br.com.alura.escola.dominio.aluno.Aluno;
+import br.com.alura.escola.dominio.aluno.CPF;
+import br.com.alura.escola.dominio.aluno.Email;
 
 public class TestesAluno {
 	
