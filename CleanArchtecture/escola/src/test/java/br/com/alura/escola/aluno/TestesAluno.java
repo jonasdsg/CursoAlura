@@ -1,13 +1,17 @@
-package escola;
+package br.com.alura.escola.aluno;
 
+import static br.com.alura.escola.aluno.FabricaDeAluno.novoAluno;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static escola.FabricaDeAluno.novoAluno;
 
 import org.junit.jupiter.api.Test;
 
-public class Testes {
+import br.com.alura.escola.aluno.Aluno;
+import br.com.alura.escola.aluno.CPF;
+import br.com.alura.escola.aluno.Email;
+
+public class TestesAluno {
 	
 	@Test
 	public void testeEmailValido() {

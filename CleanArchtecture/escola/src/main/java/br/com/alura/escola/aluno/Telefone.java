@@ -1,4 +1,4 @@
-package escola;
+package br.com.alura.escola.aluno;
 import static java.util.regex.Pattern.matches;
 import static java.util.Objects.isNull;
 
