@@ -24,4 +24,16 @@ public class Aluno {
 	public void adicionarTelefone(String telefone) {
 		telefones.add(new Telefone(telefone));
 	}
+	
+	public String getCPF() {
+		return cpf.getCpf();
+	}
+	
+	public String getNome() {
+		return nome;
+	}
+	
+	public String getEmail() {
+		return email.getEmail();
+	}
 }
