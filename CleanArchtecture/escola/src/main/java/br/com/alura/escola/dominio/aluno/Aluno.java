@@ -6,8 +6,9 @@ import java.util.List;
 public class Aluno {
 	private CPF cpf;
 	private Email email;
-	private List<Telefone> telefones;
 	private String nome;
+	private String senha;
+	private List<Telefone> telefones;
 	
 	private Aluno(){}
 	
