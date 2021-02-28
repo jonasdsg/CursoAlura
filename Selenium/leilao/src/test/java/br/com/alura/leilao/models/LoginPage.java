@@ -1,4 +1,4 @@
-package br.com.alura.leilao;
+package br.com.alura.leilao.models;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -10,7 +10,7 @@ public class LoginPage {
 	private static final String URL_LOGIN = "http://localhost:8080/login";
 	private WebDriver browser;
 
-	LoginPage() {
+	public LoginPage() {
 		System.setProperty("webdriver.chrome.driver","drivers/chromedriver");		
 		this.browser = new ChromeDriver();	
 	}
@@ -37,4 +37,15 @@ public class LoginPage {
 	public boolean isOnPageListagemDeLeiloes() {
 		return URL_LIST_LEILOES.contains(this.browser.getCurrentUrl());
 	}	
+	
+	public static ListagemLeiloesPage obterListagemLeiloesPage(String usuario,String senha) {
+		LoginPage lp = new LoginPage();
+		lp.realizarLogin(usuario, senha);
+		if(lp.isOnPageListagemDeLeiloes() && lp.isUsuarioLogado(usuario)) {
+			return new ListagemLeiloesPage(lp.browser);
+		}
+		throw new RuntimeException("Falha ao obter ListagemLeiloesPage");
+	}
+	
+
 }
