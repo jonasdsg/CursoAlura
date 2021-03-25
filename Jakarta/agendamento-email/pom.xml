@@ -21,6 +21,18 @@
 			<version>8.0.0</version>
 			<scope>provided</scope>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.23</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.eclipse.persistence/eclipselink -->
+		<dependency>
+			<groupId>org.eclipse.persistence</groupId>
+			<artifactId>eclipselink</artifactId>
+			<version>3.0.0</version>
+		</dependency>
 
 
 	</dependencies>
@@ -30,8 +42,8 @@
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<configuration>
-					<source>1.15</source>
-					<target>1.15</target>
+					<source>15</source>
+					<target>15</target>
 				</configuration>
 				<version>3.8.1</version>
 			</plugin>
