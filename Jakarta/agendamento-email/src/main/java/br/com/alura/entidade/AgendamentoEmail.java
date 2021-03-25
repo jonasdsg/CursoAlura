@@ -1,18 +1,20 @@
 package br.com.alura.entidade;
 
+import static javax.persistence.GenerationType.IDENTITY;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class AgendamentoEmail {
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = IDENTITY)
 	private Long id;
 	private String assunto;
 	private String mensagem;
 	private Boolean agendado;
+	public AgendamentoEmail() {	}
 	
 	public void setAssunto(String assunto) {
 		this.assunto = assunto;
