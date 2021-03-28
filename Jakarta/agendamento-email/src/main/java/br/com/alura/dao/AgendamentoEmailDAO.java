@@ -21,4 +21,8 @@ public class AgendamentoEmailDAO {
 	public AgendamentoEmail buscarPorId(Long id) {
 		return em.find(AgendamentoEmail.class, id);
 	}
+	
+	public void inserir(AgendamentoEmail agendamento) {
+		em.persist(agendamento);
+	}
 }
