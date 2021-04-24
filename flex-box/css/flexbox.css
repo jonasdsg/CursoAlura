@@ -25,7 +25,21 @@
     margin-right: 5%;
 }
 
-
+.videoSobre .container{
+    display: flex;
+    justify-content: space-between;
+}
+.videoSobre-sobre{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    flex-grow: 1;
+}
+.videoSobre-sobre-list{
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+}
 
 .rodapePrincipal-navMap-list{
     display: flex;
@@ -84,5 +98,10 @@
 
     .rodapePrincipal-contatoForm-fildset {
         justify-content: center;
+    }
+
+    .videoSobre .container{
+        display: flex;
+        flex-direction: column;
     }
 }
