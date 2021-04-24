@@ -33,3 +33,13 @@
     height: 260px;
     flex-wrap: wrap;
 }
+
+.conteudoPrincipal-cursos-link{
+    width: 23%;
+    margin-right: 1%;
+}
+
+.conteudoPrincipal-cursos{
+    display: flex;
+    flex-wrap: wrap;
+}
