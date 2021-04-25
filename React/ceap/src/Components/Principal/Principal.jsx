@@ -6,23 +6,22 @@ import "./Principal.css";
 export default class Principal extends Component {
     constructor(){
         super();
-        this.notas = [];
-        this.state = {}
+        this.state = {
+            notas:[]
+        }
     }
 
     criarNota(titulo,mensagem){
-        const nota = {titulo,mensagem}
-        this.notas.push(nota);
-        console.log(this.notas.length);
-        this.setState({
-            notas:this.notas
-        })
+        const novoEstado = {
+            notas: [...this.state.notas,{titulo,mensagem}]
+        }
+        this.setState(novoEstado);
     }
 
     render(){
         return (
             <div className="main">
-                <ListaDeNotas notas={this.notas}/>
+                <ListaDeNotas notas={this.state.notas}/>
                 <FormularioCadastro criarNota={this.criarNota.bind(this)}/>
             </div>
         );
