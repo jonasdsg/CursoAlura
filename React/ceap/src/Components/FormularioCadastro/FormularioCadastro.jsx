@@ -9,9 +9,17 @@ export default class FormularioCadastro extends Component {
         super();
         this.card = new Card();
     }
-
-    infCard(event){
-        this.card.mensagem = event.target.value;
+    
+    adicionarTitulo(evento){
+        this.card.titulo = evento.target.value;
+    }
+    
+    adicionarMensagem(evento){
+        this.card.mensagem = evento.target.value;
+    }
+    exibirCard(evento){
+        evento.preventDefault();
+        console.log(this.card);
     }
 
     render(){
@@ -19,10 +27,10 @@ export default class FormularioCadastro extends Component {
             <form className="form-cadastro">
                 <div className="card-format">
 
-                    <input type="text" id="titulo_nota" placeholder="Título" />
+                    <input type="text" id="titulo_nota" placeholder="Título"  onChange={this.adicionarTitulo.bind(this)}/>
                     <div className="input-text">
-                        <textarea rows="3" placeholder="Escreva sua nota"></textarea>
-                        <button>Criar nota</button>
+                        <textarea rows="3" placeholder="Escreva sua nota" onChange={this.adicionarMensagem.bind(this)}></textarea>
+                        <button onClick={this.exibirCard.bind(this)}>Criar nota</button>
                     </div>
                 
                 </div>
