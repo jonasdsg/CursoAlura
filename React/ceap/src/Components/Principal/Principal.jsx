@@ -7,12 +7,16 @@ export default class Principal extends Component {
     constructor(){
         super();
         this.notas = [];
+        this.state = {}
     }
 
     criarNota(titulo,mensagem){
         const nota = {titulo,mensagem}
         this.notas.push(nota);
-        console.log(this.notas.length)
+        console.log(this.notas.length);
+        this.setState({
+            notas:this.notas
+        })
     }
 
     render(){
