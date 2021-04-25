@@ -3,9 +3,20 @@ import "./FormularioCadastro.css";
 import "../CardNota/CardNota.css"
 
 export default class FormularioCadastro extends Component {
+    
+    card;
+    constructor(){
+        super();
+        this.card = new Card();
+    }
+
+    infCard(event){
+        this.card.mensagem = event.target.value;
+    }
+
     render(){
         return (
-            <form>
+            <form className="form-cadastro">
                 <div className="card-format">
 
                     <input type="text" id="titulo_nota" placeholder="Título" />
@@ -18,4 +29,9 @@ export default class FormularioCadastro extends Component {
             </form>
         );
     }
+}
+
+export class Card {
+    titulo;
+    mensagem;
 }

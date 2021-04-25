@@ -1,9 +1,11 @@
-.form-cadastro{
-    display: flex;
-    height: 200px;
-    width: 300px;
-    flex-direction: column;
+.titulo_nota{
+    border: 0;
 }
+
+.form-cadastro{
+    display: flex;    
+}
+
 .input-text{
     display: flex;
     align-items: center;

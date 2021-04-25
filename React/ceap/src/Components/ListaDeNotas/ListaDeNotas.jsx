@@ -5,10 +5,8 @@ import "./ListaDeNotas.css";
 export default class ListaDeNotas extends Component {
     render(){
         return (
-            <section>
+            <section className="lista_notas_section">
                 <ul className="lista_notas">
-                    <CardNota/>
-                    <CardNota/>
                     <CardNota/>
                     <CardNota/>
                     <CardNota/>

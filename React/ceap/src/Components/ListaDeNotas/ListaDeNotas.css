@@ -3,3 +3,7 @@
     flex-direction: row;
     flex-wrap: wrap;
 }
+
+.lista_notas_section{
+    display: flex;
+}
