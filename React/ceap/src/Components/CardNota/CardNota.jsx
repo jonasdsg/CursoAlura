@@ -5,8 +5,8 @@ export default class CardNota extends Component {
     render(){
         return (
             <li className="card-format">
-                <header><h3>Título</h3></header>
-                <main><p>escreva sua nota!</p></main>
+                <header><h3>{this.props.nota.titulo}</h3></header>
+                <main><p>{this.props.nota.mensagem}</p></main>
             </li>
         );
     }

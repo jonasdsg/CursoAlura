@@ -4,9 +4,8 @@ import "../CardNota/CardNota.css"
 
 export default class FormularioCadastro extends Component {
     
-    card;
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.card = new Card();
     }
     
@@ -17,9 +16,10 @@ export default class FormularioCadastro extends Component {
     adicionarMensagem(evento){
         this.card.mensagem = evento.target.value;
     }
-    exibirCard(evento){
+    criarNota(evento){
         evento.preventDefault();
-        console.log(this.card);
+        this.props.criarNota(this.card.titulo,this.card.mensagem);
+
     }
 
     render(){
@@ -30,7 +30,7 @@ export default class FormularioCadastro extends Component {
                     <input type="text" id="titulo_nota" placeholder="Título"  onChange={this.adicionarTitulo.bind(this)}/>
                     <div className="input-text">
                         <textarea rows="3" placeholder="Escreva sua nota" onChange={this.adicionarMensagem.bind(this)}></textarea>
-                        <button onClick={this.exibirCard.bind(this)}>Criar nota</button>
+                        <button onClick={this.criarNota.bind(this)}>Criar nota</button>
                     </div>
                 
                 </div>

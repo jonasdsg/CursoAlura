@@ -7,10 +7,11 @@ export default class ListaDeNotas extends Component {
         return (
             <section className="lista_notas_section">
                 <ul className="lista_notas">
-                    <CardNota/>
-                    <CardNota/>
-                    <CardNota/>
-                    <CardNota/>
+                    {this.props.notas.map((nota,index)=>{
+                        return (
+                            <CardNota key={index} nota={nota}/>
+                        );
+                    })}
                 </ul>
             </section>
         );
