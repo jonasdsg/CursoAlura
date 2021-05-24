@@ -1,0 +1,5 @@
+<div>
+    <label for="input-id">Enter a new id here: </label>
+    <input type="text" name="input-id" id="input-id" #reference>
+    <button (click)="finish(reference.value)">Set id</button>
+</div>
