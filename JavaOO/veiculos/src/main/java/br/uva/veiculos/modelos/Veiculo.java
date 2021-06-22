@@ -1,18 +1,20 @@
 package br.uva.veiculos.modelos;
 
-public class Veiculo {
+public abstract class Veiculo {
 	private String marca;
 	private String modelo;
 	private String cor;
 	private Double comprimento;
 	private Double largura;
+	private Double preco;
 	
-	public Veiculo(String marca, String modelo, String cor, Double comprimento, Double largura) {
+	public Veiculo(String marca, String modelo, String cor, Double comprimento, Double largura,Double preco) {
 		this.marca = marca;
 		this.modelo = modelo;
 		this.cor = cor;
 		this.comprimento = comprimento;
 		this.largura = largura;
+		this.preco = preco;
 	}
 	
 	public Veiculo(String marca, String modelo, String cor, Double comprimento) {
@@ -87,5 +89,29 @@ public class Veiculo {
 	public void setLargura(Double largura) {
 		this.largura = largura;
 	}
+	
+	public Double getPreco() {
+		return preco;
+	}
+
+	public void setPreco(Double preco) {
+		this.preco = preco;
+	}
+
+	public abstract Double valorDesconto();
+	public abstract String imprimir();
+
+	@Override
+	public String toString() {
+		return  "--------------------------------------"
+				+"\nMarca: " + marca
+				+ "\nModelo: " + modelo
+				+"\nPreco: " + preco
+				+"\nCor: " + cor 
+				+"\nComprimento: " + comprimento
+				+"\nLargura: " + largura;
+	}
+	
+	
 	
 }
