@@ -54,5 +54,12 @@ public class Motor {
 	public void setPreco(Double preco) {
 		this.preco = preco;
 	}
+
+	@Override
+	public String toString() {
+		return " [peso=" + peso + ", rpm=" + rpm + ", velocidade=" + velocidade + ", tipo=" + tipo + ", preco="
+				+ preco + "]";
+	}
+	
 	
 }
