@@ -6,6 +6,8 @@ public class Lancha extends Veiculo {
 	private String nome;
 
 	public Lancha() {
+		motor1 = new Motor();
+		motor2 = new Motor();
 	}
 
 	public Lancha(String marca, String modelo, Motor motor1, Motor motor2) {
@@ -63,9 +65,18 @@ public class Lancha extends Veiculo {
 	}
 
 	@Override
-	public String imprimir() {
-		return super.toString() + "\nNome: " + this.nome + "\nMotor 1: " + this.motor1 + "\nMotor 2: " + this.motor2
-				+ "\n----------------------------------";
+	public void imprimir() {
+		System.out.println( super.toString() + "\nNome: " + this.nome + "\nMotor 1: " + this.motor1 + "\nMotor 2: " + this.motor2
+				+ "\n--------------------[  FIM  DO RELATÓRIO  ]--------------------");
+	}
+
+	@Override
+	public void entradaDados() {
+		this.entradaDadosDefault();
+		System.out.print("Nome: ");
+		nome = teclado.nextLine();
+		motor1.entradaDados();
+		motor2.entradaDados();
 	}
 
 }
