@@ -33,23 +33,25 @@ public class Veiculos {
 		carros[4] = new Carro("PEOGEOT", "206","PRATA",3.0,1.5,8000.0,motores[0],"FUK-3180");
 		
 		lanchas[0] = new Lancha("XSpeed", "120", "BRANCO", 12.0, 4.0, 5000000.0,motores[3]);
-		lanchas[0] = new Lancha("Ventura", "195 Crossover", "BRANCO", 12.0, 4.0, 8000000.0,motores[2]);
-		lanchas[0] = new Lancha("Real", "220", "BRANCO", 12.0, 4.0, 200000.0,motores[1]);
-		lanchas[0] = new Lancha("FS", "230 Scappare", "BRANCO", 12.0, 4.0, 6000000.0,motores[3]);
-		lanchas[0] = new Lancha("SOLARA", "235 Cabin", "BRANCO", 12.0, 4.0, 870000.0,motores[3]);
+		lanchas[1] = new Lancha("Ventura", "195 Crossover", "BRANCO", 12.0, 4.0, 8000000.0,motores[2]);
+		lanchas[2] = new Lancha("Real", "220", "BRANCO", 12.0, 4.0, 200000.0,motores[1]);
+		lanchas[3] = new Lancha("FS", "230 Scappare", "BRANCO", 12.0, 4.0, 6000000.0,motores[3]);
+		lanchas[4] = new Lancha("SOLARA", "235 Cabin", "BRANCO", 12.0, 4.0, 870000.0,motores[3]);
 		
+		System.out.println("--------------------[  CARROS  ]--------------------\n\n");
 		for (Carro c : carros) {
 			if (c != null) {
 				c.imprimir();
 			}
 		}
-
+		System.out.println("\n\n--------------------[  LANCHAS  ]--------------------\n\n");
 		for (Lancha l : lanchas) {
 			if (l != null) {
 				l.imprimir();
 			}
 		}
-
+		
+		System.out.println("\n\n--------------------[  AVIÕES  ]--------------------\n\n");
 		for (Aviao a : avioes) {
 			if (a != null) {
 				a.imprimir();
